@@ -27,12 +27,6 @@ python -m playwright install chromium
 pytest
 ```
 
-`pytest.ini` runs the suite with two workers by default:
-
-```text
--n 2
-```
-
 The selected item title and price are printed to the console for each test case.
 
 ## Run On LambdaTest Cloud
@@ -46,18 +40,6 @@ $env:RUN_ON_LAMBDATEST="true"
 pytest
 ```
 
-Optional LambdaTest capability overrides:
-
-```powershell
-$env:LT_BROWSER="Chrome"
-$env:LT_BROWSER_VERSION="latest"
-$env:LT_PLATFORM="Windows 10"
-$env:LT_BUILD="Amazon Device Cart Tests"
-pytest
-```
-
-## Useful Options
-
 Run with the browser visible:
 
 ```powershell
@@ -65,29 +47,3 @@ $env:HEADLESS="false"
 pytest
 ```
 
-Override the default search terms:
-
-```powershell
-$env:IPHONE_QUERY="Simple Mobile iPhone"
-$env:GALAXY_QUERY="Samsung Galaxy unlocked smartphone"
-pytest
-```
-
-Override the Amazon delivery ZIP used for the run:
-
-```powershell
-$env:AMAZON_ZIP="10001"
-pytest
-```
-
-Use a different browser supported by Playwright:
-
-```powershell
-$env:BROWSER="firefox"
-python -m playwright install firefox
-pytest
-```
-
-## Notes
-
-Amazon pages, product availability, and add-to-cart controls can change by region and session. The tests default to ZIP `10001` so Amazon.com exposes US add-to-cart controls. If Amazon presents a CAPTCHA or bot-check page, the tests stop with a clear failure message so the run does not produce misleading results.
